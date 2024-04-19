@@ -1,0 +1,59 @@
+{
+  "editor.indentSize": 2,
+  "alloglot.activateCommand": "ghcid",
+  "alloglot.revealActivateCommandOutput": true,
+  "alloglot.languages": [
+    {
+      "languageId": "haskell",
+      "serverCommand": "static-ls",
+      "formatCommand": "fourmolu --mode stdout --stdin-input-file ${file}",
+      "onSaveCommand": "hlint --json --no-exit-code ${file} > .hlint-out.json",
+      "apiSearchUrl": "https://hoogle.haskell.org/?hoogle=${query}",
+      "annotations": [
+        {
+          "file": ".ghcid-out.json",
+          "format": ["messages"],
+          "mapping": {
+            "file": ["file"],
+            "startLine": ["start", "0"],
+            "startColumn": ["start", "1"],
+            "endLine": ["end", "0"],
+            "endColumn": ["end", "1"],
+            "includeEndColumn": true,
+            "message": ["message"],
+            "severity": ["severity"]
+          }
+        },
+        {
+          "file": ".hlint-out.json",
+          "format": "json",
+          "mapping": {
+            "file": ["file"],
+            "startLine": ["startLine"],
+            "startColumn": ["startColumn"],
+            "endLine": ["endLine"],
+            "endColumn": ["endColumn"],
+            "message": ["hint"],
+            "severity": ["severity"],
+            "replacements": ["to"]
+          }
+        }
+      ],
+      "tags": [
+        {
+          "file": ".tags-dependencies",
+          "completionsProvider": true,
+          "definitionsProvider": true,
+          "importsProvider": {
+            "importLinePattern": "import ${module}",
+            "matchFromFilepath": "([A-Z][A-Za-z0-9_']*)(\\/([A-Z][A-Za-z0-9_']*))*\\.hs",
+            "renderModuleName": [
+              { "tag": "replace", "from": "\\.hs", "to": "" },
+              { "tag": "replace", "from": "\\/", "to": "." }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

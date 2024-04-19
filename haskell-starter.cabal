@@ -1,0 +1,49 @@
+cabal-version: 3.0
+name:          haskell-starter
+version:       0.1.0.0
+author:        Daniel Brice
+maintainer:    danielbrice@gmail.com
+copyright:     2024 Daniel Brice
+license:       BSD-3-Clause
+license-file:  LICENSE
+build-type:    Simple
+
+common common-opts
+  default-language:   GHC2021
+  ghc-options:
+    -Wall -Wcompat -Widentities -Wincomplete-record-updates
+    -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields
+    -Wredundant-constraints
+
+  default-extensions:
+    DeriveAnyClass
+    DerivingVia
+    FunctionalDependencies
+    GADTs
+    LambdaCase
+    NoFieldSelectors
+    OverloadedRecordDot
+    QuantifiedConstraints
+    RecordWildCards
+    RoleAnnotations
+    ViewPatterns
+
+  build-depends:      base >=4.16 && <5
+
+library
+  import:          common-opts
+  exposed-modules: Lib
+  hs-source-dirs:  src/lib
+  ghc-options:     -O2 -Werror
+
+library dev
+  import:             common-opts
+  exposed-modules:    Lib
+  hs-source-dirs:     src/lib
+  ghc-options:
+    -O0 -fwrite-ide-info -hiedir .hiefiles -fwrite-interface -hidir
+    .hifiles -fhelpful-errors -fdefer-type-errors
+    -fno-defer-typed-holes -Werror=deferred-type-errors
+    -Werror=deferred-out-of-scope-variables -Wno-missing-home-modules
+
+  default-extensions: PartialTypeSignatures

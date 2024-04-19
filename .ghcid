@@ -1,0 +1,9 @@
+--command="cabal repl lib:dev --ghc-options='-ignore-dot-ghci'"
+--setup=":! rm -f .hiedb && hiedb -D .hiedb --src-base-dir . init"
+--reverse-errors
+--no-height-limit
+--restart=haskell-starter.cabal
+--color=never
+--test=":! hiedb -D .hiedb --src-base-dir . index ."
+--warnings
+--outputfile=".ghcid-out.json"

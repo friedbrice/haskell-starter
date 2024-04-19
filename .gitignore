@@ -1,0 +1,14 @@
+.ghcid-out.json
+.hiedb
+.hiefiles
+.hifiles
+.hlint-out.json
+.packages
+.stack-work/
+cabal.package.local
+dist-newstyle/
+dist/
+ghcid-out.json
+hlint-out.json
+stack.yaml
+stack.yaml.lock

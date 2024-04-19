@@ -1,0 +1,28 @@
+- functions:
+  - {name: '!!', within: []}
+  - {name: cycle, within: []}
+  - {name: dropWhile, within: []}
+  - {name: filter, within: []}
+  - {name: foldl, within: []}
+  - {name: foldl1, within: []}
+  - {name: foldl1', within: []}
+  - {name: foldr1, within: []}
+  - {name: head, within: []}
+  - {name: init, within: []}
+  - {name: last, within: []}
+  - {name: length, within: []}
+  - {name: maximum, within: []}
+  - {name: minimum, within: []}
+  - {name: product, within: []}
+  - {name: reverse, within: []}
+  - {name: sum, within: []}
+  - {name: tail, within: []}
+
+- modules:
+  - {name: Data.Set, as: Set}
+  - {name: Data.Map, as: Map}
+  - {name: Data.Text, as: Text}
+  - {name: Data.Text.Lazy, as: LText}
+  - {name: Data.ByteString, as: BS}
+  - {name: Data.ByteString.Lazy, as: LBS}
+  - {name: Data.ByteString.Char8, as: Char8}
